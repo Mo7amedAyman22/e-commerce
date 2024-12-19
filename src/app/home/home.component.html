@@ -1,0 +1,44 @@
+<label class="cat  ">category:</label>
+<select name="" id="" class="form-control" (change)="filterCategory($event)">
+  <option value="all" >all</option>
+  <option value="{{option}}" *ngFor="let option of category">{{option}}</option>
+</select>
+
+<div class="logo position-relative py-2">
+  <img src="assets/wallpaperflare.com_wallpaper (3).jpg" alt="" class="img-fluid">
+  <div class="title position-absolute">
+    <h2>Market</h2>
+    <p>Online Shopping</p>
+    <p class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+        Animi, qui ad! Iure aliquam recusandae earum reprehenderit <br>
+        aspernatur hic in, distinctio eveniet placeat, <br>
+        quaerat numquam nemo quibusdam itaque natus quam cum!</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class=" col-md-3 py-3" *ngFor="let data of product"  >
+      <div class="item" >
+        <div routerLink="/productDeltails/{{data.id}}">
+          <img src="{{data.image}}" alt="" class="img-fluid">
+          <div class="info">
+            <h4>{{data.title}}</h4>
+            <p>{{data.description}}</p>
+          </div>
+        </div>
+        <input type="number" class="form-control"  [(ngModel)]="data.quantity">
+      <div class="price " >
+
+        <button class="btn btn-info"  (click)= "addToCart(data)">Add To Cart</button>
+        <span >{{data.price}} $</span>
+
+      </div>
+
+
+      </div>
+      </div>
+    </div>
+
+  </div>
+
